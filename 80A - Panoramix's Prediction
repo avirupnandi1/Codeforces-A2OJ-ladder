@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+//check prime with this function
+
+bool isPrime(int number) {
+    if (number <= 1)
+        return false;
+
+    for (int i = 2; i * i <= number; i++) {
+        if (number % i == 0)
+            return false;
+    }
+
+    return true;
+}
+//find the next prime with this function
+
+int nextPrime(int num){
+    if(num==1)
+     return 2;
+  
+    int i=num+1;
+     while(!isPrime(i)){
+         i++;
+     }
+     return i;
+}
+
+//main function
+int main()
+{
+ int n,m;
+ cin>>n>>m;
+ int ans=nextPrime(n);
+if(ans==m)
+cout<<"YES";
+else
+cout<<"NO";
+return 0;
+}
